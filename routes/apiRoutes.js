@@ -7,31 +7,28 @@ router.get("/thumbnailimages/:offset/:limit", (req, res) => {
    
     let offset = req.params.offset
     let limit = req.params.limit 
-
-    console.log("In offset******" + offset)
-    console.log("In limit******" + limit)
-    console.log("length" + thumbnailImages.length)
-
-    let images = []
-    limit = parseInt(offset) + parseInt(limit)
+   
+    console.log( "offset"+ offset) 
     let nData = thumbnailImages.length
     if(limit > nData){
       limit = nData
     }
-    if(offset >= nData)
+    if(offset >= nData || limit===0)
     {
-        res.status(422).send({ msg: "Invalid offset parameter " });
+        res.status(422).send({ msg: "Invalid parameters " });
     }
-      
-      for(let i=offset; i<limit; i++){
+    let images = []
+    limit = parseInt(offset) + parseInt(limit)
+
+    for(let i=offset; i<limit; i++){
         images.push(thumbnailImages[i])
-      }
+    }
     
-      if(limit < nData && images.length>0){
+    if(limit < nData && images.length>0){
         res.status(200).send({ images: images, msg: "" })
-      }else{
+    }else{
         res.status(200).send({ images: images, msg: "NoNext" })
-      }
+    }
 });
 
 module.exports = router;

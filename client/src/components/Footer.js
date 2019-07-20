@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react"
 
 
-function Footer()
-{
-    
+const Footer = (props) => {
     return(  
         <footer>
-		    <a href="instructions.pdf">Download PDF Instructions</a>
+		    <a href="instructions.pdf">{props.children}</a>
         </footer>
     ) 
 }
 export default Footer;
+
+
     

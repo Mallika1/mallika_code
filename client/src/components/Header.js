@@ -1,12 +1,10 @@
-import React from 'react'
+import React from "react"
 
 
-function Header()
-{
-    
+const  Header = (props) => { 
     return(  
         <header>
-		    Code Development Project
+		    {props.children}
         </header>
     ) 
 }

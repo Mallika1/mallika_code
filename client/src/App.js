@@ -3,12 +3,13 @@ import Header from './components/Header'
 import Main from './components/Main'
 import Footer from './components/Footer'
 import "./style/style.css"
-function App() {
+
+const  App =() => {
   return (
     <div id="container">
-      <Header/>
+      <Header> Code Development Project </Header>
       <Main/>
-      <Footer/>
+      <Footer> Download PDF Instructions </Footer>
     </div>
   );
 }

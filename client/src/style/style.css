@@ -74,7 +74,7 @@ header {
 	width: 660px;
 }
 
-.thumbnails a {
+.thumbnails .link {
 	color: #777;
 	float: left;
 	margin: 0 5px;
@@ -90,11 +90,11 @@ header {
 	-moz-border-radius: 5px; -webkit-border-radius: 5px; border-radius: 5px;
 }
 
-.thumbnails a:hover img {
+.thumbnails .link:hover img {
 	border-color: #eee;
 }
 
-.thumbnails a:active img {
+.thumbnails .link:active img {
 	border-color: #aaa;
 }
 
@@ -103,7 +103,7 @@ header {
 	border-color: #a41d0f;
 }
 
-.thumbnails a span {
+.thumbnails .link span {
 	background: #eee;
 	-moz-border-radius: 22px; -webkit-border-radius: 22px; border-radius: 22px;
 	font-weight: bold;
@@ -112,16 +112,16 @@ header {
 	padding: 2px 15px;
 }
 
-.thumbnails a:hover span {
+.thumbnails .link:hover span {
 	background: #ddd;
 }
 
-.thumbnails a:active span {
+.thumbnails .link:active span {
 	background: #aaa;
 	color: #fff;
 }
 
-.thumbnails a.active span {
+.thumbnails .link.active span {
 	background: #a41d0f;
 	color: #fff;
 }
