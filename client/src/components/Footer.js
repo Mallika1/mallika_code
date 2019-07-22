@@ -1,10 +1,10 @@
 import React from "react"
 
 
-const Footer = (props) => {
+const Footer = () => {
     return(  
         <footer>
-		    <a href="instructions.pdf">{props.children}</a>
+		    <a href="instructions.pdf">Download PDF Instructions</a>
         </footer>
     ) 
 }

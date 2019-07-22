@@ -53,7 +53,7 @@ class Main extends Component {
         e.preventDefault();
         let imgId = e.target.id
         //with this id find the image and meta data from the state array 
-        var newArray = [...this.state.images].filter(x => x.id === imgId)
+        let newArray = [...this.state.images].filter(x => x.id === imgId)
         this.setState({selectedImg :newArray[0]})
     }
     
