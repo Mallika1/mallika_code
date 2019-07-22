@@ -1,34 +1,22 @@
 import React, { useState, useEffect } from 'react';
-import ThumbnailsView from "./ThumbnailsView"
-import LargeImageView from "./LargeImageView"
-import ImageAttributeView from "./ImageAttributeView"
-import * as Constant  from "../constants"
-import API from "../utils/API"
+import ThumbnailsView from "../thumbnailview"
+import LargeImageView from "../largeview"
+import ImageAttributeView from "../attrview"
+import * as Constant  from "../../constants"
+import API from "../../utils/API"
 
 function Main() {
   // Declare a new state variable
-  const [images, setImages] = useState([]);
+  const [imageArr, setImageArr] = useState([]);
   const [error, setError] = useState(false);
   const [selectedImg, setSelectedImg] = useState("");
   const [offset, setOffset] = useState(0);
 
-  const  displayThumbnailImages = async (offset, count) =>{
-    try { 
-        const res = await API.getThumbnailImages(offset,count)
-        if(res.status === Constant.SUCCESS_STATUS){
-                setImages(res.data.images)
-                setError(res.data.msg)
-        }
-    } catch (err) {
-      console.log(err)
-    }
-  }
-  
   useEffect(() => {
     const displayImagesOnload = async () => {
     const res = await API.getThumbnailImages(0,Constant.LIMIT)
     let tempImageArr = res.data.images
-    setImages(tempImageArr)
+    setImageArr(tempImageArr)
     setError(res.data.msg)
     setSelectedImg(tempImageArr[0])
     };
@@ -36,25 +24,35 @@ function Main() {
     displayImagesOnload(0,4)
   }, [])
   
- 
+  const  displayThumbnailImages = async (offset, count) =>{
+    try { 
+        const res = await API.getThumbnailImages(offset,count)
+        if(res.status === Constant.SUCCESS_STATUS){
+          setImageArr(res.data.images)
+          setError(res.data.msg)
+        }
+    } catch (err) {
+      console.log(err)
+    }
+  }
+
   const handleShowNext = () => {
-    setImages([])
+    setImageArr([])
     setOffset(offset + Constant.LIMIT)
-    displayThumbnailImages(offset+4, Constant.LIMIT)
-    
+    displayThumbnailImages(offset+Constant.LIMIT, Constant.LIMIT)
   };
 
   const handleShowPrevious = () => {
-      setOffset(offset-Constant.LIMIT)
-      displayThumbnailImages(offset-Constant.LIMIT, Constant.LIMIT)
+    setOffset(offset-Constant.LIMIT)
+    displayThumbnailImages(offset-Constant.LIMIT, Constant.LIMIT)
   };
 
   const handleImgClick = (e) => {
-  e.preventDefault();
-  let imgId = e.target.id
-  //with this id find the image and meta data from the state array 
-  let newArray = [...images].filter(x => x.id === imgId)
-  setSelectedImg(newArray[0])
+    e.preventDefault();
+    let imgId = e.target.id
+    //with this id find the image and meta data from the state array 
+    let newArray = [...imageArr].filter(x => x.id === imgId)
+    setSelectedImg(newArray[0])
   }
 
   return (
@@ -67,7 +65,7 @@ function Main() {
      	</div> 
       <div className="thumbnails">
         <div className="group"> 
-          {images.map( img => 
+          {imageArr.map( img => 
           <ThumbnailsView
             key={img.id}
             title={img.title}
