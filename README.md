@@ -25,6 +25,6 @@ Clone the git repository and run npm install
 
 ***
 ### Defaul view 
-![Default View](./client/public/assets/images/screenshot1.PNG)
+![Default View](./client/public/images/screenshot1.PNG)
 
 
