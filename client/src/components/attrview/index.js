@@ -15,10 +15,7 @@
  07/23/2019      Mallika Chakraborty    Initial cration
 =============================================================*/
 import React from "react"
-
-
 const ImageAttributeView = (props) => {
-	
 	const {title,description,cost,id,thumbnail,image} = props
 	if(!title){
 		return null

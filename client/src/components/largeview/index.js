@@ -14,11 +14,9 @@
 
  07/23/2019      Mallika Chakraborty    Initial cration
 =============================================================*/
+
 import React from "react"
-
-
 const LargeImageView = (props) =>{
-
     const {image,altText,width,height} = props
     if(!image){
         return null

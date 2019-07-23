@@ -20,6 +20,5 @@ import axios from "axios";
 export default {
   getThumbnailImages: function(offset, limit) {
     return axios.get("/api/thumbnailimages/" + offset + "/" +  limit);
-   
   }
 };

@@ -1,14 +1,30 @@
+/*
+==================================================
+ @<COPYRIGHT>@
+==================================================
+ File description:
+    Unit Test file for ThumbnailsView component.
+
+    File   : src/thumbnailview/thumbnailview.test
+    Component : ThumbnailsView 
+
+=============================================================
+ date            name                  description of change
+
+ 07/23/2019      Mallika Chakraborty    Initial cration
+=============================================================*/
 import React from "react";
 import { shallow } from "enzyme";
 import { findByTestAtrr } from "../../utils/testutils";
 import ThumbnailsView from "./index";
 
+//Get ThumbnailsView component
 const setUp = (props={}) => {
     const component = shallow(<ThumbnailsView {...props} />);
     return component;
 };
-
 describe("ThumbnailsView Component", () => {
+    //testcases with props
     describe("Have props", () => {
         let wrapper;
         beforeEach(() => {
@@ -32,7 +48,7 @@ describe("ThumbnailsView Component", () => {
             expect(h1.length).toBe(1);
         });  
     });
-
+    //testcases without props
     describe("Have NO props", () => {
         let wrapper;
         beforeEach(() => {
@@ -44,5 +60,4 @@ describe("ThumbnailsView Component", () => {
             expect(component.length).toBe(0);
         });
     });
-
 });
