@@ -3,25 +3,20 @@
  @<COPYRIGHT>@
 ==================================================
  File description:
-    This file contains Header functional component.
-    This component renders from App component
-    File   : header/index.js
-    Component : Header
+    This is test setup file.
+
+    File   : src/setUoTests.js
+    Module : Client
 
 =============================================================
  date            name                  description of change
 
  07/23/2019      Mallika Chakraborty    Initial cration
 =============================================================*/
-import React from 'react'
+import Enzyme from "enzyme";
+import EnzymeAdapter from "enzyme-adapter-react-16";
 
-
-const  Header = () => { 
-    return(  
-        <header data-test='headerComponent'>
-		    Code Development Project
-        </header>
-    ) 
-}
-export default Header;
-    
+Enzyme.configure({
+    adapter: new EnzymeAdapter(),
+    disableLifecycleMethods: true
+});

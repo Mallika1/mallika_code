@@ -2,15 +2,21 @@ import React from "react";
 
 
 const ThumbnailsView = (props) => {
+
+     const {thumbnail,id,width,height,onClick} = props
+     if(!thumbnail){
+          return null
+      }
+     
      return (
-          <div className="link">
-               <img src={`images/thumbnails/${props.thumbnail}`} id={props.id}
-               alt={props.id} 
-               width="145" 
-               height="121" 
-               onClick={props.onClick}
+          <div className="link" data-test="thumbnailViewComponent">
+               <img src={`images/thumbnails/${thumbnail}`} id={id}
+               alt={id} 
+               width={width} 
+               height={height} 
+               onClick={onClick}
                />
-               <span>{props.id}</span>
+               <span>{id}</span>
           </div>
      );
 }

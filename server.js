@@ -1,3 +1,18 @@
+/*
+==================================================
+ @<COPYRIGHT>@
+==================================================
+ File description:
+    This is node server setup file
+
+    File   : server.js
+    Module : server
+
+=============================================================
+ date            name                  description of change
+
+ 07/23/2019      Mallika Chakraborty    Initial cration
+=============================================================*/
 const express = require("express");
 const path = require("path");
 
