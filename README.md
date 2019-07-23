@@ -6,7 +6,7 @@ This application displays the thumbnail images in a filmstrip view below the mai
 ## Installation 
 Clone the git repository and run npm install
 
-
+## Live Link 
 [TemplateViewer Live Link](https://safe-tundra-82509.herokuapp.com/)
 
 ## Technology
